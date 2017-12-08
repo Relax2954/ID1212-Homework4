@@ -12,7 +12,7 @@ import sasalekic1.mynewjavaeeapp.model.ConverterAccountDTO;
 
 /**
  * A controller. All calls to the model that are executed because of an action
- * taken by the cashier pass through here.
+ * taken by the facade pass through here.
  */
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 @Stateless

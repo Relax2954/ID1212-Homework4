@@ -11,7 +11,7 @@ import  sasalekic1.mynewjavaeeapp.model.ConverterAccount;
 
 /**
  * Handles all interaction with the entity manager. No code outside of this class, except for the
- * JPA entities, shall haver anything to do with JPA.
+ * JPA entities, shall have anything to do with JPA.
  */
 @TransactionAttribute(TransactionAttributeType.MANDATORY)
 @Stateless
