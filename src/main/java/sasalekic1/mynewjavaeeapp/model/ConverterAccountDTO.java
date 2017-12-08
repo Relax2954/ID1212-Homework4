@@ -12,11 +12,11 @@ public interface ConverterAccountDTO {
      */
     int getAcctNo();
 
-    int getBalance();
+    float getBalance();
 
-    int getcurr1rate();
+    float getcurr1rate();
 
-    int getcurr2rate();
+    float getcurr2rate();
 
     String getCurrName1();
 

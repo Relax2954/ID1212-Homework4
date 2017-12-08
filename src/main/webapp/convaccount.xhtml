@@ -26,7 +26,24 @@
         <h:form>
             <h3>Find Converter</h3>
             <p>
+                <h:outputLabel for="searchedAcct" value="Please choose the right converter by typing the number of the desired pre-configured converter in the box below: "/>
+                </p>
+                <p>
+                <h:outputLabel for="searchedAcct" value="To convert from sek to: a)eur- type in 1  b)dollar- type in 2 c) pound-type in 3 "/>
+                </p>
+                <p>
+                <h:outputLabel for="searchedAcct" value="To convert from eur to: a)sek- type in 4  b)dollar- type in 5 c) pound-type in 6 "/>
+                </p>
+                <p>
+                <h:outputLabel for="searchedAcct" value="To convert from dollar to: a)sek- type in 7  b)eur- type in 8 c) pound-type in 9 "/>
+                </p>
+                <p>
+                <h:outputLabel for="searchedAcct" value="To convert from pound to: a)sek- type in 10  b)eur- type in 11 c) dollar-type in 12 "/>
+                </p>
+                <p>
                 <h:outputLabel for="searchedAcct" value="Converter Number: "/>
+                </p>
+                <p>
                 <h:inputText id="searchedAcct" value="#{acctManager.searchedAcct}"/>
             </p>
             <p>
@@ -34,8 +51,8 @@
             </p>
             <hr/>
 
-            
-            
+
+
             <h3>Convert the money</h3>
             <p>
                 <h:outputLabel for="transactionAmount" value="Amount to exchange "/>
@@ -46,7 +63,7 @@
             </p>
             <hr/>
 
-            <h3>Create a New Converter</h3>
+            <h3>[admin setting]Create a New Converter- this way I set up the currencies in the database easily</h3>
             <p>
                 <h:outputLabel for="currencyName1" value="Currency 1: "/>
                 <h:inputText id="currencyName1" value="#{acctManager.currencyName1}"/>

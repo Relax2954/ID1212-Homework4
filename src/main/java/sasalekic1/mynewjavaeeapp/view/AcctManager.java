@@ -6,7 +6,7 @@ import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import sasalekic1.mynewjavaeeapp.controller.CashierFacade;
+import sasalekic1.mynewjavaeeapp.controller.Facade;
 import sasalekic1.mynewjavaeeapp.model.ConverterAccountDTO;
 
 /**
@@ -17,14 +17,14 @@ import sasalekic1.mynewjavaeeapp.model.ConverterAccountDTO;
 public class AcctManager implements Serializable {
 
     @EJB
-    private CashierFacade cashierFacade;
+    private Facade cFacade;
     private ConverterAccountDTO currentAcct;
     private String CurrencyName1;
     private String CurrencyName2;
-    private Integer CurrencyRate1;
-    private Integer CurrencyRate2;
-    private Integer newAccountBalance;
-    private Integer transactionAmount;
+    private Float CurrencyRate1;
+    private Float CurrencyRate2;
+    private Float newAccountBalance;
+    private Float transactionAmount;
     private Integer searchedAcct;
     private Exception transactionFailure;
     @Inject
@@ -71,7 +71,7 @@ public class AcctManager implements Serializable {
     public void convv() {
         try {
             transactionFailure = null;
-            cashierFacade.convv(currentAcct.getAcctNo(), transactionAmount);
+            cFacade.convv(currentAcct.getAcctNo(), transactionAmount);
             readAcctData();
         } catch (Exception e) {
             handleException(e);
@@ -86,7 +86,7 @@ public class AcctManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            currentAcct = cashierFacade.findAccount(searchedAcct);
+            currentAcct = cFacade.findAccount(searchedAcct);
         } catch (Exception e) {
             handleException(e);
         }
@@ -99,7 +99,7 @@ public class AcctManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            currentAcct = cashierFacade.createAccount(CurrencyName1,
+            currentAcct = cFacade.createAccount(CurrencyName1,
                     CurrencyName2, CurrencyRate1, CurrencyRate2, 0);
         } catch (Exception e) {
             handleException(e);
@@ -127,14 +127,14 @@ public class AcctManager implements Serializable {
      *
      * @param transactionAmount new value of transactionAmount
      */
-    public void setTransactionAmount(Integer transactionAmount) {
+    public void setTransactionAmount(Float transactionAmount) {
         this.transactionAmount = transactionAmount;
     }
 
     /**
      * Never used but JSF does not support write-only properties.
      */
-    public Integer getTransactionAmount() {
+    public Float getTransactionAmount() {
         return null;
     }
 
@@ -143,22 +143,22 @@ public class AcctManager implements Serializable {
      *
      * @param newAccountBalance new value of newAccountBalance
      */
-    public void setNewAccountBalance(Integer newAccountBalance) {
+    public void setNewAccountBalance(Float newAccountBalance) {
         this.newAccountBalance = newAccountBalance;
     }
 
-    public void setCurrencyRate1(Integer CurrencyRate1) {
+    public void setCurrencyRate1(Float CurrencyRate1) {
         this.CurrencyRate1 = CurrencyRate1;
     }
 
-    public void setCurrencyRate2(Integer CurrencyRate2) {
+    public void setCurrencyRate2(Float CurrencyRate2) {
         this.CurrencyRate2 = CurrencyRate2;
     }
 
     /**
      * Never used but JSF does not support write-only properties.
      */
-    public Integer getNewAccountBalance() {
+    public Float getNewAccountBalance() {
         return null;
     }
 
@@ -194,11 +194,11 @@ public class AcctManager implements Serializable {
         return null;
     }
 
-    public Integer getCurrencyRate1() {
+    public Float getCurrencyRate1() {
         return null;
     }
 
-    public Integer getCurrencyRate2() {
+    public Float getCurrencyRate2() {
         return null;
     }
 

@@ -15,11 +15,11 @@ public class ConverterAccount implements ConverterAccountDTO, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int acctNo;
-    private int balance;
+    private float balance;
     private String CurrName1;
     private String CurrName2;
-    private int curr1rate;
-    private int curr2rate;
+    private float curr1rate;
+    private float curr2rate;
 
     /**
      * Creates a new instance of Account
@@ -36,7 +36,7 @@ public class ConverterAccount implements ConverterAccountDTO, Serializable {
      * @param curr1rate
      * @param curr2rate
      */
-    public ConverterAccount(int balance, String CurrName1, String CurrName2, int curr1rate, int curr2rate) {
+    public ConverterAccount(float balance, String CurrName1, String CurrName2, float curr1rate, float curr2rate) {
         this.balance = balance;
         this.CurrName1 = CurrName1;
         this.CurrName2 = CurrName2;
@@ -60,7 +60,7 @@ public class ConverterAccount implements ConverterAccountDTO, Serializable {
      * @return the value of balance
      */
     @Override
-    public int getBalance() {
+    public float getBalance() {
         return balance;
     }
 
@@ -75,16 +75,16 @@ public class ConverterAccount implements ConverterAccountDTO, Serializable {
     }
 
     @Override
-    public int getcurr1rate() {
+    public float getcurr1rate() {
         return curr1rate;
     }
 
     @Override
-    public int getcurr2rate() {
+    public float getcurr2rate() {
         return curr1rate;
     }
 
-    public void convv(int amount) throws NegativeVException {
+    public void convv(float amount) throws NegativeVException {
         if (amount < 0) {
             throw new NegativeVException(
                     "Amount must be positive!");

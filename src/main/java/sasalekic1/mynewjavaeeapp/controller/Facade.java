@@ -16,7 +16,7 @@ import sasalekic1.mynewjavaeeapp.model.ConverterAccountDTO;
  */
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 @Stateless
-public class CashierFacade {
+public class Facade {
 
     @EJB
     ConverterDAO converterDB;
@@ -30,7 +30,7 @@ public class CashierFacade {
      * @param curr2rate
      * @param balance
      */
-    public ConverterAccountDTO createAccount(String CurrName1, String CurrName2, int curr1rate, int curr2rate, int balance) {
+    public ConverterAccountDTO createAccount(String CurrName1, String CurrName2, float curr1rate, float curr2rate, float balance) {
         ConverterAccount newAcct = new ConverterAccount(balance, CurrName1, CurrName2, curr1rate, curr2rate);
         converterDB.storeAccount(newAcct);
         return newAcct;
@@ -47,7 +47,7 @@ public class CashierFacade {
         return converterDB.findAccountByAcctNo(acctNo);
     }
 
-    public void convv(int acctNo, int amount) throws NegativeVException {
+    public void convv(int acctNo, float amount) throws NegativeVException {
         ConverterAccount acct = converterDB.findAccountByAcctNo(acctNo);
         acct.convv(amount);
     }
